@@ -1,0 +1,57 @@
+body {
+  min-height: 100vh;
+  margin: 0 auto;
+  font-family: 'Quicksand', sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+header, footer {
+  width: 100%;
+  height: 30px;
+  background: #000000;
+  color: #FFFFFF;
+  text-align: center;
+  line-height: 30px;
+}
+
+main {
+  flex-grow: 1;
+  background: #D3D3D3;
+  display: flex;
+  justify-content: space-around;
+}
+
+nav, section, aside {
+  flex-basis: 150px;
+  background: grey;
+  color: #FFFFFF;
+  border-radius: 10px;
+  margin: 5px;
+  text-align: center;
+  line-height: 100px;
+}
+
+aside {
+	order: 2;
+}
+
+.navi {
+	display: flex;
+	flex-flow: row-wrap;
+	justify-content: flex-end;
+}
+section {
+  flex-grow: 1;
+}
+
+@media screen and (max-width: 600px){
+  main {
+    flex-direction: column;
+  }
+  
+  section {
+    order: 1;
+  }
+}}
