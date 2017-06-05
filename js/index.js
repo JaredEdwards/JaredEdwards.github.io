@@ -104,7 +104,7 @@ const projects = {
       images: [
         './images/projectFour/p4_login.png',
         './images/projectFour/p4_entrees.png',
-        './images/projectFour/p4_add_items.png'
+        './images/projectFour/resize_p4_add_items.png'
       ]
     },
     {
@@ -220,8 +220,8 @@ const schoolStart = '<div class="education-entry"></div>';
 const schoolName = '<a href="#">name';
 const schoolDegree = ' -- degree</a>';
 const schoolDates = '<div class="date-text">dates</div>';
-const schoolLocation = '<div class="location-text">eduLocation</div>';
-const schoolMajor = '<em><br>Major: myMajor</em>';
+const schoolLocation = '<div class="location-text">eduLocation';
+const schoolMajor = '<br><h4>Major: myMajor</h4></div>';
 
 /*
 * Append online education section to page inside education section
