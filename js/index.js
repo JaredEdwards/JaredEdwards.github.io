@@ -79,15 +79,15 @@ const work = {
 const projects = {
   projects: [
     {
-      title: 'Scrounge',
+      title: 'Scrounge - Bodhi Works',
       dates: 'April 2017 - Present',
-      description: 'Food truck locator and Proximity Based Ordering System ',
+      description: 'Started Agile workflow using one week sprints for product development towards a MVP for a Proximity Based Ordering System (PBOS) on an 8- week project. I was included in user stories, product design, and new feature implementation. The technologies used were Node.js, Express.js, JQuery, WebSockets, AWS EC2 including a load balancer, Route 53 and SSL, Docker, Twitter API integration, Redis.js, React Native, and Git for version control. Selected 3rd party packages best fit for feature implementation in the native application for both android and iOS. I experienced a system architecture for a scalable application that used Docker containers for each of its processes to interact in production as well as maintained consistent development environments.',
       images: ['http://i.imgur.com/LJf4LzXb.jpg', 'http://i.imgur.com/8RB7Cetb.jpg']
     },
     {
       title: 'Skip the Line  - GA Project Four',
-      dates: '3/10/2017 - 3/16/2017',
-      description: 'Food truck locator and Proximity Based Ordering System ',
+      dates: '4/1/2017 - 4/7/2017',
+      description: 'For project four we had the opportunity to use any technologies we wanted. React was very lightly covered for two days but I found it interesting and wanted to dive deeper into the concepts and how it works. I spent most of the week teaching myself how React and Firebase worked and really enjoyed it. This project was meant to get me familiar enough with React specifically to start working on Scrounge the following day after presenting. ',
       images: [
         './images/projectFour/p4_login.png',
         './images/projectFour/p4_entrees.png',
@@ -97,7 +97,7 @@ const projects = {
     {
       title: 'Mood Player  - GA Project Three',
       dates: '3/10/2017 - 3/16/2017',
-      description: 'Food truck locator and Proximity Based Ordering System ',
+      description: 'Project three was a group project, we had to choose from ideas presented in class and this was our approach and someone wanting to have a web application that allowed you to add songs to a mood list of your choosing. I was responsible for setting up the rails api that made requests to Spotify to allow us access to music to play in the browser.',
       images: [
         './images/projectThree/p3_welcome.png',
         './images/projectThree/p3_all_lists.png',
@@ -115,6 +115,43 @@ const projects = {
         './images/projectTwo/p2_post_idea.png',
         './images/projectTwo/p2_view_idea.png'
       ]
+    }
+  ]
+};
+
+const education = {
+  schools: [
+    {
+      name: 'General Assembly ',
+      location: 'Washington D.C.',
+      degree: 'Certificate',
+      dates: 'January 2017 - April 2017',
+      url: 'http://www.generalassemb.ly',
+      majors: ['Web Development Immersive']
+    },
+    {
+      name: 'George Mason University ',
+      location: 'Fairfax VA',
+      degree: 'Bachelor of Science (incomplete)',
+      dates: 'August 2015 - December 2016',
+      url: 'http://www.gmu.edu',
+      majors: ['Applied Information Technology - Database & Programming']
+    },
+    {
+      name: 'Northern Virginia Community College ',
+      location: 'Annandale, VA',
+      degree: 'Associate of Science',
+      dates: 'August 2012 - May 2015',
+      url: 'http://www.nvcc.edu',
+      majors: ['Information Technology']
+    }
+  ],
+  onlineCourses: [
+    {
+      title: 'Introduction to Programming Nanodegree',
+      school: 'Udacity',
+      dates: 'September 2016 - October 2016',
+      url: 'http://www.udacity.com'
     }
   ]
 };
@@ -159,7 +196,28 @@ const projectDescription = '<p><br>projDesc</p>';
 const projectImage = `<img src="projImage" style='width: 180px; height: 180px;'>`;
 
 /*
+* Append formal education section to page
+*/
+const schoolStart = '<div class="education-entry"></div>';
+const schoolName = '<a href="#">name';
+const schoolDegree = ' -- degree</a>';
+const schoolDates = '<div class="date-text">dates</div>';
+const schoolLocation = '<div class="location-text">eduLocation</div>';
+const schoolMajor = '<em><br>Major: myMajor</em>';
+
+/*
+* Append online education section to page inside education section
+*/
+const onlineClasses = '<h3>Online Classes</h3>';
+const onlineTitle = '<a href="#">title';
+const onlineSchool = ' - school</a>';
+const onlineDates = '<div class="date-text">dates</div>';
+const onlineURL = '<br><a href="#">url</a>';
+
+/*
+*
 * Initial JQuery functions to append info.
+*
 */
 
 // header section
@@ -188,7 +246,12 @@ $('#restContactInfo').append(skillsStart);
 displaySkills(bio.skills);
 displayWork(work.jobs);
 displayProjects(projects.projects);
+displayEducation(education.schools);
+displayOnlineCourses(education.onlineCourses);
 
+/*
+* function to display skills inside the header
+*/
 function displaySkills(skills) {
   // iterate over the skills array and append each skill inside the header
   skills.forEach(skill => {
@@ -197,6 +260,9 @@ function displaySkills(skills) {
   });
 }
 
+/*
+* function to display work experience inside respective section
+*/
 function displayWork(jobs) {
   jobs.forEach(job => {
     //create new div for work experience
@@ -225,7 +291,7 @@ function displayWork(jobs) {
 }
 
 /*
-* Need to iterate over projects array to display projects
+* function to display projects inside respective section
 */
 function displayProjects(projects) {
   //append the project-entry element to resume to allow appending of individual projects
@@ -250,5 +316,51 @@ function displayProjects(projects) {
       let singleImage = projectImage.replace('projImage', image);
       $('.project-entry:last').append(singleImage);
     });
+  });
+}
+
+/*
+* A function to iterate over education array and display information in respective section
+*/
+function displayEducation(schools) {
+  // append all education to the education div
+  $('#education').append(schoolStart);
+
+  education.schools.forEach(school => {
+    // for each school combine the name and degree to create an a tag link
+    const nameAndDegree = schoolName.replace('name', school.name) + schoolDegree.replace('degree', school.degree);
+
+    // replace the text with the dates attended
+    const dates = schoolDates.replace('dates', school.dates);
+    // replace the location with my location information
+    const location = schoolLocation.replace('eduLocation', school.location);
+    // replace major with my major information
+    const major = schoolMajor.replace('myMajor', school.majors);
+
+    // append all the created variables to the education section
+    $('.education-entry:last').append(nameAndDegree);
+    $('.education-entry:last').append(dates);
+    $('.education-entry:last').append(location);
+    $('.education-entry:last').append(major);
+  });
+}
+
+/*
+* A function to iterate over education array and display information in respective section
+*/
+function displayOnlineCourses(courses) {
+  $('.education-entry:last').append(onlineClasses);
+
+  education.onlineCourses.forEach(course => {
+    let titleAndSchool = onlineTitle.replace('#', course.url);
+    // onlineTitle.attr('href', course.url);
+
+    titleAndSchool = onlineTitle.replace('title', course.title) + onlineSchool.replace('school', course.school);
+    const dates = onlineDates.replace('dates', course.dates);
+    const url = onlineURL.replace('url', course.url);
+
+    $('.education-entry:last').append(titleAndSchool);
+    $('.education-entry:last').append(dates);
+    $('.education-entry:last').append(url);
   });
 }
