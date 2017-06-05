@@ -95,10 +95,10 @@ const projects = {
       ]
     },
     {
-      title: 'Skip the Line  - GA Project Four',
+      title: 'Skip the Line  - GA Project',
       dates: '4/1/2017 - 4/7/2017',
       url: 'https://skip-the-line-6b9d1.firebaseapp.com/',
-      description: 'For project four we had the opportunity to use any technologies we wanted. React was very lightly covered for two days but I found it interesting and wanted to dive deeper into the concepts and how it works. I spent most of the week teaching myself how React and Firebase worked and really enjoyed it. This project was meant to get me familiar enough with React specifically to start working on Scrounge the following day after presenting. ',
+      description: 'This project was an opportunity for me to become familiar with React as a pre-cursor to the Scrounge Application. React was very lightly covered for two days but I found it interesting and wanted to dive deeper into the concepts and how it works inlcuding React Native. I spent most of the week teaching myself how React and Firebase worked together and really enjoyed learning Reacts core concepts. This project was only worked on for 7 days before presenting.',
       images: [
         './images/projectFour/p4_login.png',
         './images/projectFour/p4_entrees.png',
@@ -106,10 +106,10 @@ const projects = {
       ]
     },
     {
-      title: 'Mood Player  - GA Project Three',
+      title: 'Mood Player  - GA Project',
       dates: '3/10/2017 - 3/16/2017',
       url: 'https://philocoder93.github.io/mood_player/#/moods/welcome',
-      description: 'Project three was a group project, we had to choose from ideas presented in class and this was our approach and someone wanting to have a web application that allowed you to add songs to a mood list of your choosing. I was responsible for setting up the rails api that made requests to Spotify to allow us access to music to play in the browser.',
+      description: `This project was a group project, we had to choose from ideas presented in the classroom and this was our approach to someone's web application idea that allowed you to add songs to a mood list of your choosing. I was responsible for setting up the rails api that made requests to Spotify to allow access to music to play in the browser which was displayed using Angular.`,
       images: [
         './images/projectThree/p3_welcome.png',
         './images/projectThree/p3_all_lists.png',
@@ -118,10 +118,10 @@ const projects = {
       ]
     },
     {
-      title: 'Idea Logger - GA Project Two',
+      title: 'Idea Logger - GA Project',
       dates: '2/27/2017 - 3/2/2017',
       url: 'https://idea-logger.herokuapp.com/',
-      description: 'This was the second project at General Assmembly where we utilized Ruby on Rails. This project was completed over the course of one week and is hosted on heroku and uses devise for authentication. It is a blog style site for people to post their ideas and recieve endorsements for them, think Kickstarter. ',
+      description: `This project at General Assmembly was our first look at using Ruby and Ruby on Rails. This project was completed over the course of one week and is hosted on Heroku. It uses devise for authentication and has full crud functionality. It is a blog style site for people to post their ideas and recieve endorsements for them, think Kickstarter.`,
       images: [
         './images/projectTwo/p2_login.png',
         './images/projectTwo/p2_all_ideas.png',
@@ -206,7 +206,7 @@ const projectStart = '<div class="project-entry"></div>';
 const projectTitle = '<a href="#">projTitle</a>';
 const projectDates = '<div class="date-text">projDates</div>';
 const projectDescription = '<p><br>projDesc</p>';
-const projectImage = `<img src="projImage" style='width: 180px; height: 180px;'>`;
+const projectImage = `<img class='project-images' src="projImage" style='width: 180px; height: 180px;'>`;
 
 /*
 * Append formal education section to page
