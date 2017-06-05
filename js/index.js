@@ -86,6 +86,7 @@ const projects = {
       title: 'Scrounge - Bodhi Works',
       dates: 'April 2017 - Present',
       url: 'http://www.scrounge.io',
+      repository: 'This repository is private however I am happy to share code in person.',
       description: 'Started Agile workflow using one week sprints for product development towards a MVP for a Proximity Based Ordering System (PBOS) on an 8- week project. I was included in user stories, product design, and new feature implementation. The technologies used were Node.js, Express.js, JQuery, WebSockets, AWS EC2 including a load balancer, Route 53 and SSL, Docker, Twitter API integration, Redis.js, React Native, and Git for version control. Selected 3rd party packages best fit for feature implementation in the native application for both android and iOS. I experienced a system architecture for a scalable application that used Docker containers for each of its processes to interact in production as well as maintained consistent development environments.',
       images: [
         './images/scrounge/scrounge_web_home.png',
@@ -98,6 +99,7 @@ const projects = {
       title: 'Skip the Line  - GA Project',
       dates: '4/1/2017 - 4/7/2017',
       url: 'https://skip-the-line-6b9d1.firebaseapp.com/',
+      repository: 'https://github.com/JaredEdwards/skip-the-line',
       description: 'This project was an opportunity for me to become familiar with React as a pre-cursor to the Scrounge Application. React was very lightly covered for two days but I found it interesting and wanted to dive deeper into the concepts and how it works inlcuding React Native. I spent most of the week teaching myself how React and Firebase worked together and really enjoyed learning Reacts core concepts. This project was only worked on for 7 days before presenting.',
       images: [
         './images/projectFour/p4_login.png',
@@ -109,7 +111,8 @@ const projects = {
       title: 'Mood Player  - GA Project',
       dates: '3/10/2017 - 3/16/2017',
       url: 'https://philocoder93.github.io/mood_player/#/moods/welcome',
-      description: `This project was a group project, we had to choose from ideas presented in the classroom and this was our approach to someone's web application idea that allowed you to add songs to a mood list of your choosing. I was responsible for setting up the rails api that made requests to Spotify to allow access to music to play in the browser which was displayed using Angular.`,
+      repository: 'https://github.com/Philocoder93/mood_player',
+      description: `This project was a group project, we had to choose from ideas presented in the classroom and this was our approach to someone's web application idea that allowed you to add songs to a mood list of your choosing. I was responsible for setting up the Ruby on Rails API that made requests to Spotify and returned the URI to allow access to music for playing in the browser which was displayed using Angular.`,
       images: [
         './images/projectThree/p3_welcome.png',
         './images/projectThree/p3_all_lists.png',
@@ -121,6 +124,7 @@ const projects = {
       title: 'Idea Logger - GA Project',
       dates: '2/27/2017 - 3/2/2017',
       url: 'https://idea-logger.herokuapp.com/',
+      repository: 'https://github.com/JaredEdwards/Idea-logger',
       description: `This project at General Assmembly was our first look at using Ruby and Ruby on Rails. This project was completed over the course of one week and is hosted on Heroku. It uses devise for authentication and has full crud functionality. It is a blog style site for people to post their ideas and recieve endorsements for them, think Kickstarter.`,
       images: [
         './images/projectTwo/p2_login.png',
@@ -204,6 +208,7 @@ const workDescription = '<p><br>jobDescription</p>';
 */
 const projectStart = '<div class="project-entry"></div>';
 const projectTitle = '<a href="#">projTitle</a>';
+const projectRepository = '<a href="#">projRepository</a>';
 const projectDates = '<div class="date-text">projDates</div>';
 const projectDescription = '<p><br>projDesc</p>';
 const projectImage = `<img class='project-images' src="projImage" style='width: 180px; height: 180px;'>`;
@@ -317,22 +322,27 @@ function displayProjects(projects) {
   //append the project-entry element to resume to allow appending of individual projects
   $('#projects').append(projectStart);
 
-  //loop over all projects in the projects array
+  // loop over all projects in the projects array
   projects.forEach(project => {
-    //append the title to the projects element
+    // append the title to the projects element
     let title = projectTitle.replace('projTitle', project.title);
     title = title.replace('#', project.url);
     $('.project-entry:last').append(title);
 
-    //append the dates the project was worked on
+    //append repository link in projects element
+    let repo = projectRepository.replace('projRepository', project.repository);
+    repo = repo.replace('#', project.repository);
+    $('.project-entry:last').append(repo);
+
+    // append the dates the project was worked on
     const dates = projectDates.replace('projDates', project.dates);
     $('.project-entry:last').append(dates);
 
-    //append project description
+    // append project description
     const description = projectDescription.replace('projDesc', project.description);
     $('.project-entry:last').append(description);
 
-    //append the project images
+    // append the project images
     project.images.forEach(image => {
       let singleImage = projectImage.replace('projImage', image);
       $('.project-entry:last').append(singleImage);
