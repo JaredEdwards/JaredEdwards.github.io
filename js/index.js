@@ -131,7 +131,7 @@ const education = {
     },
     {
       name: 'George Mason University ',
-      location: 'Fairfax VA',
+      location: 'Fairfax, VA',
       degree: 'Bachelor of Science (incomplete)',
       dates: 'August 2015 - December 2016',
       url: 'http://www.gmu.edu',
@@ -248,6 +248,7 @@ displayWork(work.jobs);
 displayProjects(projects.projects);
 displayEducation(education.schools);
 displayOnlineCourses(education.onlineCourses);
+$('#mapDiv').append(googleMap);
 
 /*
 * function to display skills inside the header
