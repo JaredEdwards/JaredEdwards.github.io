@@ -253,7 +253,7 @@ displayWork(work.jobs);
 displayProjects(projects.projects);
 displayEducation(education.schools);
 displayOnlineCourses(education.onlineCourses);
-$('#mapDiv').append(googleMap);
+// $('#mapDiv').append(googleMap);
 
 /*
 * function to display skills inside the header
