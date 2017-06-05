@@ -76,6 +76,49 @@ const work = {
   ]
 };
 
+const projects = {
+  projects: [
+    {
+      title: 'Scrounge',
+      dates: 'April 2017 - Present',
+      description: 'Food truck locator and Proximity Based Ordering System ',
+      images: ['http://i.imgur.com/LJf4LzXb.jpg', 'http://i.imgur.com/8RB7Cetb.jpg']
+    },
+    {
+      title: 'Skip the Line  - GA Project Four',
+      dates: '3/10/2017 - 3/16/2017',
+      description: 'Food truck locator and Proximity Based Ordering System ',
+      images: [
+        './images/projectFour/p4_login.png',
+        './images/projectFour/p4_entrees.png',
+        './images/projectFour/p4_add_items.png'
+      ]
+    },
+    {
+      title: 'Mood Player  - GA Project Three',
+      dates: '3/10/2017 - 3/16/2017',
+      description: 'Food truck locator and Proximity Based Ordering System ',
+      images: [
+        './images/projectThree/p3_welcome.png',
+        './images/projectThree/p3_all_lists.png',
+        './images/projectThree/p3_single_list.png',
+        './images/projectThree/p3_add_song.png'
+      ]
+    },
+    {
+      title: 'Idea Logger - GA Project Two',
+      dates: '2/27/2017 - 3/2/2017',
+      description: 'This was the second project at General Assmembly where we utilized Ruby on Rails. This project was completed over the course of one week and is hosted on heroku and uses devise for authentication. It is a blog style site for people to post their ideas and recieve endorsements for them, think Kickstarter. ',
+      images: [
+        './images/projectTwo/p2_login.png',
+        './images/projectTwo/p2_all_ideas.png',
+        './images/projectTwo/p2_post_idea.png',
+        './images/projectTwo/p2_view_idea.png'
+      ]
+    }
+  ]
+};
+
 /*
 * Structure for appending information
 */
@@ -99,13 +142,21 @@ const headerSkills = '<li class="flex-item"><span class="white-text">mySkill</sp
 /*
 * Append work section to page
 */
-
 const workStart = '<div class="work-entry"></div>';
 const workEmployer = '<a href="#">employerName';
 const workTitle = ' - jobTitle</a>';
 const workDates = '<div class="date-text">datesEmployed</div>';
 const workLocation = '<div class="location-text">employerLocation</div>';
 const workDescription = '<p><br>jobDescription</p>';
+
+/*
+* Append projects section to page
+*/
+const projectStart = '<div class="project-entry"></div>';
+const projectTitle = '<a href="#">projTitle</a>';
+const projectDates = '<div class="date-text">projDates</div>';
+const projectDescription = '<p><br>projDesc</p>';
+const projectImage = `<img src="projImage" style='width: 180px; height: 180px;'>`;
 
 /*
 * Initial JQuery functions to append info.
@@ -134,6 +185,9 @@ $('#topContacts').append(myLocation);
 $('#restContactInfo').append(pic);
 $('#restContactInfo').append(welcome);
 $('#restContactInfo').append(skillsStart);
+displaySkills(bio.skills);
+displayWork(work.jobs);
+displayProjects(projects.projects);
 
 function displaySkills(skills) {
   // iterate over the skills array and append each skill inside the header
@@ -142,8 +196,6 @@ function displaySkills(skills) {
     $('#skills').append(skills);
   });
 }
-
-displaySkills(bio.skills);
 
 function displayWork(jobs) {
   jobs.forEach(job => {
@@ -172,4 +224,31 @@ function displayWork(jobs) {
   });
 }
 
-displayWork(work.jobs);
+/*
+* Need to iterate over projects array to display projects
+*/
+function displayProjects(projects) {
+  //append the project-entry element to resume to allow appending of individual projects
+  $('#projects').append(projectStart);
+
+  //loop over all projects in the projects array
+  projects.forEach(project => {
+    //append the title to the projects element
+    const title = projectTitle.replace('projTitle', project.title);
+    $('.project-entry:last').append(title);
+
+    //append the dates the project was worked on
+    const dates = projectDates.replace('projDates', project.dates);
+    $('.project-entry:last').append(dates);
+
+    //append project description
+    const description = projectDescription.replace('projDesc', project.description);
+    $('.project-entry:last').append(description);
+
+    //append the project images
+    project.images.forEach(image => {
+      let singleImage = projectImage.replace('projImage', image);
+      $('.project-entry:last').append(singleImage);
+    });
+  });
+}
