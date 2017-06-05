@@ -104,7 +104,7 @@ const projects = {
       images: [
         './images/projectFour/p4_login.png',
         './images/projectFour/p4_entrees.png',
-        './images/projectFour/resize_p4_add_items.png'
+        './images/projectFour/p4_add_items.png'
       ]
     },
     {
@@ -384,7 +384,6 @@ function displayOnlineCourses(courses) {
 
   education.onlineCourses.forEach(course => {
     let titleAndSchool = onlineTitle.replace('#', course.url);
-    // onlineTitle.attr('href', course.url);
 
     titleAndSchool = onlineTitle.replace('title', course.title) + onlineSchool.replace('school', course.school);
     const dates = onlineDates.replace('dates', course.dates);
