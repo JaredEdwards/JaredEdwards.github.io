@@ -93,9 +93,19 @@ const contactLocation =
   '<li class="flex-item"><span class="orange-text">location</span><span class="white-text">myLocation</span></li>';
 const headerBioPic = '<img src="myPic" class="biopic">';
 const headerWelcomeMsg = '<span class="welcome-message">myMsg</span>';
-
 const headerSkillsStart = '<h3 id="skills-h3">Skills at a Glance:</h3><ul id="skills" class="flex-box"></ul>';
 const headerSkills = '<li class="flex-item"><span class="white-text">mySkill</span></li>';
+
+/*
+* Append work section to page
+*/
+
+const workStart = '<div class="work-entry"></div>';
+const workEmployer = '<a href="#">employerName';
+const workTitle = ' - jobTitle</a>';
+const workDates = '<div class="date-text">datesEmployed</div>';
+const workLocation = '<div class="location-text">employerLocation</div>';
+const workDescription = '<p><br>jobDescription</p>';
 
 /*
 * Initial JQuery functions to append info.
@@ -126,6 +136,7 @@ $('#restContactInfo').append(welcome);
 $('#restContactInfo').append(skillsStart);
 
 function displaySkills(skills) {
+  // iterate over the skills array and append each skill inside the header
   skills.forEach(skill => {
     const skills = headerSkills.replace('mySkill', skill);
     $('#skills').append(skills);
@@ -133,3 +144,32 @@ function displaySkills(skills) {
 }
 
 displaySkills(bio.skills);
+
+function displayWork(jobs) {
+  jobs.forEach(job => {
+    //create new div for work experience
+    $('#workExperience').append(workStart);
+
+    //concatenate employer and title and append
+    const employer = workEmployer.replace('employerName', job.employer);
+    const title = workTitle.replace('jobTitle', job.title);
+    const employerTitle = employer + title;
+
+    //append each new iteration to the :last child
+    $('.work-entry:last').append(employerTitle);
+
+    //get the date from the object and append it to the current job
+    const dates = workDates.replace('datesEmployed', job.dates);
+    $('.work-entry:last').append(dates);
+
+    //get the location of the employer and append it to the current job
+    const location = workLocation.replace('employerLocation', job.location);
+    $('.work-entry:last').append(location);
+
+    //get the description of the job and append it to the current job
+    const description = workDescription.replace('jobDescription', job.description);
+    $('.work-entry:last').append(description);
+  });
+}
+
+displayWork(work.jobs);
