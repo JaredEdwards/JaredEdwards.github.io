@@ -43,7 +43,7 @@ const work = {
       title: 'Front End Developer / Dev Ops',
       location: 'Falls Church, VA',
       dates: 'April 2017 - Present',
-      url: 'www.bodhiworks.io',
+      url: 'http://www.bodhiworks.io',
       description: 'Started Agile workflow using one week sprints for product development towards a MVP for a Proximity Based Ordering System (PBOS) on an 8- week project. I was included in user stories, product design, and new feature implementation. The technologies used were Node.js, Express.js, JQuery, WebSockets, AWS EC2 including a load balancer, Route 53 and SSL, Docker, Twitter API integration, Redis.js, React Native, and Git for version control. Selected 3rd party packages best fit for feature implementation in the native application for both android and iOS. I experienced a system architecture for a scalable application that used Docker containers for each of its processes to interact in production as well as maintained consistent development environments.'
     },
     {
