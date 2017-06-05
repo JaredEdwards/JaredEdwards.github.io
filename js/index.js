@@ -51,6 +51,7 @@ const work = {
       title: ' Beer Guide & Brewery Representative',
       location: 'Alexandria, VA',
       dates: 'June 2015 - Present',
+      url: 'http://www.portcitybrewing.com',
       description: 'Work in the tasting room and represent the 2015 Great American Beer Festival voted Best Small Craft Brewery in America delivering world class customer service, educating how Port City takes beer from grain to your glass.'
     },
     {
@@ -58,6 +59,7 @@ const work = {
       title: 'Bartender',
       location: 'Merrifield, VA',
       dates: 'January 2011 - June 2015',
+      url: 'http://www.neighborhoodrestaurantgroup.com',
       description: 'Worked as bartender of good beer and food.'
     },
     {
@@ -65,6 +67,7 @@ const work = {
       title: 'Commercial Diver / Tender',
       location: 'Lafayette, LA',
       dates: 'April 2009 - May 2011',
+      url: 'http://www.aqueossubsea.com',
       description: 'Managed operations on deck to maintain and support any divers in water or in decompression. Responsible for full inventory of tools, gasses, and life support equipment.'
     },
     {
@@ -72,7 +75,7 @@ const work = {
       title: 'Child',
       location: 'Port Orchard, WA',
       dates: 'May 1989 - March 2009',
-      description: 'Lived'
+      description: ' '
     }
   ]
 };
@@ -82,12 +85,19 @@ const projects = {
     {
       title: 'Scrounge - Bodhi Works',
       dates: 'April 2017 - Present',
+      url: 'http://www.scrounge.io',
       description: 'Started Agile workflow using one week sprints for product development towards a MVP for a Proximity Based Ordering System (PBOS) on an 8- week project. I was included in user stories, product design, and new feature implementation. The technologies used were Node.js, Express.js, JQuery, WebSockets, AWS EC2 including a load balancer, Route 53 and SSL, Docker, Twitter API integration, Redis.js, React Native, and Git for version control. Selected 3rd party packages best fit for feature implementation in the native application for both android and iOS. I experienced a system architecture for a scalable application that used Docker containers for each of its processes to interact in production as well as maintained consistent development environments.',
-      images: ['http://i.imgur.com/LJf4LzXb.jpg', 'http://i.imgur.com/8RB7Cetb.jpg']
+      images: [
+        './images/scrounge/scrounge_web_home.png',
+        './images/scrounge/scrounge_web_single.png',
+        './images/scrounge/scrounge_mobile_landing.PNG',
+        './images/scrounge/scrounge_mobile_single.PNG'
+      ]
     },
     {
       title: 'Skip the Line  - GA Project Four',
       dates: '4/1/2017 - 4/7/2017',
+      url: 'https://skip-the-line-6b9d1.firebaseapp.com/',
       description: 'For project four we had the opportunity to use any technologies we wanted. React was very lightly covered for two days but I found it interesting and wanted to dive deeper into the concepts and how it works. I spent most of the week teaching myself how React and Firebase worked and really enjoyed it. This project was meant to get me familiar enough with React specifically to start working on Scrounge the following day after presenting. ',
       images: [
         './images/projectFour/p4_login.png',
@@ -98,6 +108,7 @@ const projects = {
     {
       title: 'Mood Player  - GA Project Three',
       dates: '3/10/2017 - 3/16/2017',
+      url: 'https://philocoder93.github.io/mood_player/#/moods/welcome',
       description: 'Project three was a group project, we had to choose from ideas presented in class and this was our approach and someone wanting to have a web application that allowed you to add songs to a mood list of your choosing. I was responsible for setting up the rails api that made requests to Spotify to allow us access to music to play in the browser.',
       images: [
         './images/projectThree/p3_welcome.png',
@@ -109,6 +120,7 @@ const projects = {
     {
       title: 'Idea Logger - GA Project Two',
       dates: '2/27/2017 - 3/2/2017',
+      url: 'https://idea-logger.herokuapp.com/',
       description: 'This was the second project at General Assmembly where we utilized Ruby on Rails. This project was completed over the course of one week and is hosted on heroku and uses devise for authentication. It is a blog style site for people to post their ideas and recieve endorsements for them, think Kickstarter. ',
       images: [
         './images/projectTwo/p2_login.png',
@@ -308,7 +320,8 @@ function displayProjects(projects) {
   //loop over all projects in the projects array
   projects.forEach(project => {
     //append the title to the projects element
-    const title = projectTitle.replace('projTitle', project.title);
+    let title = projectTitle.replace('projTitle', project.title);
+    title = title.replace('#', project.url);
     $('.project-entry:last').append(title);
 
     //append the dates the project was worked on
