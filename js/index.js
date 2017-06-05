@@ -215,6 +215,11 @@ const onlineDates = '<div class="date-text">dates</div>';
 const onlineURL = '<br><a href="#">url</a>';
 
 /*
+* add google map
+*/
+const googleMap = '<div id="map"></div>';
+
+/*
 *
 * Initial JQuery functions to append info.
 *
