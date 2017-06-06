@@ -138,7 +138,7 @@ const projects = {
       dates: '5/25/17 - 6/3/17',
       url: 'https://jarededwards.github.io/',
       repository: 'https://github.com/JaredEdwards/JaredEdwards.github.io',
-      description: 'This is my portfolio page which hosts all of my projects.',
+      description: 'This is my portfolio page which hosts all of my projects. It has a basic HTML structure and all of the content is added using jQuery.',
       images: []
     }
   ]
