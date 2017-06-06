@@ -139,7 +139,7 @@ const projects = {
       url: 'https://jarededwards.github.io/',
       repository: 'https://github.com/JaredEdwards/JaredEdwards.github.io',
       description: 'This is my portfolio page which hosts all of my projects.',
-      images: [null]
+      images: []
     }
   ]
 };
